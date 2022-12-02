@@ -1,12 +1,9 @@
 
 
-local toolModule = {}
+local doorsModule = {}
 
-function toolModule.help()
-	print("createNewTool(Tool to add, Text for the tool, function to do when the player clicks while it is equipped")
-end
 
-function toolModule.createNewTool(Tool, Text, onClicked)
+function doorsModule.createNewTool(Tool, Text, onClicked)
 	
 
 	
@@ -16,12 +13,9 @@ function toolModule.createNewTool(Tool, Text, onClicked)
 	local lighterAnimLoaded = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(anim)
 	-- few checks
 	if Tool:IsA("Tool") then
-		print("is tool")
 		-- perfect! we can get started!
 		local handle = Tool:FindFirstChild("Handle")
 		if handle then
-			Tool.Parent = game.Players.LocalPlayer.Backpack
-				print("has handle")
 			-- Weld everything
 			handle.Anchored = false
 			handle.CanCollide = false
@@ -73,12 +67,24 @@ function toolModule.createNewTool(Tool, Text, onClicked)
 			
 		else
 			-- Tool has no handle!
-			error("TOOLMODULE -- Tool has no Handle part.")
+			error("DOORSMODULE -- Tool has no Handle part.")
 		end
 	else
-		error("TOOLMODULE -- Tool Value is not a Tool! Make sure it is a tool")
+		error("DOORSMODULE -- Tool Value is not a Tool! Make sure it is a tool")
 	end
 
 end
 
-return toolModule
+function doorsModule.createNewPrompt(Part, OnInteract)
+	local proxPromt = Instance.new("ProximityPrompt")
+	proxPrompt.MaxActivationDistance = 7
+	proxPromt.Style = Enum.ProximityPromptStyle.Custom
+	proxPrompt.Name = "ModulePrompt"
+	proxPrompt.Parent = Part 
+	if OnInteract then
+		OnInteract()
+	end
+end
+
+return doorsModule
+
