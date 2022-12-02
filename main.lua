@@ -82,7 +82,8 @@ function doorsModule.createNewPrompt(Part, OnInteract)
 	proxPrompt.Name = "ModulePrompt"
 	proxPrompt.Parent = Part 
 	if OnInteract then
-		OnInteract()
+		proxPrompt.Triggered:Connect(OnInteract)
+		
 	end
 end
 
