@@ -16,9 +16,11 @@ function toolModule.createNewTool(Tool, Text, onClicked)
 	local lighterAnimLoaded = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(anim)
 	-- few checks
 	if Tool:IsA("Tool") then
+		print("is tool)
 		-- perfect! we can get started!
 		local handle = Tool:FindFirstChild("Handle")
 		if handle then
+				print("has handle")
 			-- Weld everything
 			handle.Anchored = false
 			handle.CanCollide = false
