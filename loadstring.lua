@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://github.com/Peppermintsaregood/Doors-Tool-Module/blob/main/main.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Peppermintsaregood/Doors-Tool-Module/main/main.lua"))()
