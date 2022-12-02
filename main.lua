@@ -1,5 +1,3 @@
-
-
 local doorsModule = {}
 
 
@@ -76,16 +74,13 @@ function doorsModule.createNewTool(Tool, Text, onClicked)
 end
 
 function doorsModule.createNewPrompt(Part, OnInteract)
-	local proxPromt = Instance.new("ProximityPrompt")
+	local proxPrompt = Instance.new("ProximityPrompt")
 	proxPrompt.MaxActivationDistance = 7
-	proxPromt.Style = Enum.ProximityPromptStyle.Custom
+	proxPrompt.Style = Enum.ProximityPromptStyle.Custom
 	proxPrompt.Name = "ModulePrompt"
 	proxPrompt.Parent = Part 
 	if OnInteract then
 		proxPrompt.Triggered:Connect(OnInteract)
-		
 	end
 end
-
 return doorsModule
-
