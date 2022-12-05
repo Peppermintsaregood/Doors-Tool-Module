@@ -28,7 +28,8 @@ function doorsModule.createNewTool(Tool, Text, onClicked)
 					part.CanCollide = false
 				end
 			end
-
+			local id = math.random(1,100)
+			Tool.TextureId = id
 			local debounce = false
 			if Text ~= nil then
 				for counter, item in pairs(game:GetService("Players").LocalPlayer.PlayerGui.MainUI.MainFrame.Hotbar:GetChildren()) do
@@ -36,20 +37,23 @@ function doorsModule.createNewTool(Tool, Text, onClicked)
 						item.Tool:GetPropertyChangedSignal("Image"):Connect(function()
 							-- we have our tool, change text
 							if debounce == false then
-								debounce = true
-								local textLabel = Instance.new("TextLabel", item)
-								textLabel.Size = UDim2.fromScale(1,1)
-								textLabel.BackgroundTransparency = 1
-								textLabel.Position = UDim2.new(0,0,0,0)
-								textLabel.TextScaled = true 
-								textLabel.TextColor3 = Color3.fromRGB(255,255,255)
-								textLabel.Text = Text
+								
+								if item.Tool.Image == id then
+										debounce = true
+										local textLabel = Instance.new("TextLabel", item)
+										textLabel.Size = UDim2.fromScale(1,1)
+										textLabel.BackgroundTransparency = 1
+										textLabel.Position = UDim2.new(0,0,0,0)
+										textLabel.TextScaled = true 
+										textLabel.TextColor3 = Color3.fromRGB(255,255,255)
+										textLabel.Text = Text
+										end
 							end
 						end)
 					end
 				end
 			end
-			Tool.TextureId = math.random()
+			
 			
 
 			if onClicked ~= nil then
